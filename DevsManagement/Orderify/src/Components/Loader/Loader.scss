@@ -1,0 +1,20 @@
+@keyframes OrdLoaderAnim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}
+
+#OrdLoader {
+  & #ld-1 {
+    animation: OrdLoaderAnim 0.85s 100ms ease-in-out infinite;
+  }
+  & #ld-2 {
+    animation: OrdLoaderAnim 0.85s 65ms ease-in-out infinite;
+  }
+  & #ld-3 {
+    animation: OrdLoaderAnim 0.85s 25ms ease-in-out infinite;
+  }
+}

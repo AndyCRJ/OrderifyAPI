@@ -1,0 +1,92 @@
+$fontAwesomePath: "/node_modules/@fortawesome/fontawesome-free/scss";
+@import url($fontAwesomePath + "/fontawesome.scss"),
+        url($fontAwesomePath + "/v4-shims.scss"),
+        url($fontAwesomePath + "/solid.scss"),
+        url($fontAwesomePath + "/regular.scss"),
+        url($fontAwesomePath + "/brands.scss");
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Quicksand:wght@300..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+$bg-transition: background-color cubic-bezier( 0.645, 0.045, 0.355, 1 );
+
+:root {
+  font-family: "Quicksand";
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+html[data-transitions], html[data-transitions] *:where(:not(.scapeDefault)) {
+  transition: background-color 300ms cubic-bezier( 0.645, 0.045, 0.355, 1 );
+}
+
+#root { height: 100%; }
+
+.nunito {
+  font-family: "Nunito";
+}
+
+.button {
+  @apply dark:border-white border-dark px-3 py-1;
+  border-width: 3px;
+  border-radius: 10px;
+
+  transition: scale ease-in-out 100ms, $bg-transition 100ms !important;
+
+  &.button-primary:hover:where(:not(:disabled)) {
+    scale: 1.1;
+    @apply dark:bg-primary-dark bg-primary-light;
+  }
+
+  &.button-secondary:hover:where(:not(:disabled)) {
+    scale: 1.1;
+    @apply dark:bg-secondary-dark bg-secondary-light;
+  }
+
+  &.button-primary:active:where(:not(:disabled)), &.button-secondary:active:where(:not(:disabled)) {
+    scale: 1.05;
+  }
+
+  &:disabled { cursor: wait; }
+}
+
+.input {
+  @apply dark:border-white border-dark px-3 py-1;
+  @apply bg-white dark:bg-dark;
+  border-width: 3px;
+  border-radius: 5px;
+  outline-width: 0px;
+  //background-color: #c07676;
+  &:focus-visible {
+    @apply outline outline-outline_primary;
+    @apply border-border_primary;
+    outline-width: 4px;
+  }
+  
+  &.input-error {
+    @apply outline outline-transparency_error;
+    @apply border-error;
+  }
+  transition: all ease-in-out 75ms;
+}
+
+.box-border {
+  border-width: 3px;
+  border-radius: 10px;
+  @apply border-solid dark:border-white border-dark;
+}

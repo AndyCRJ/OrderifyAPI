@@ -1,0 +1,28 @@
+{
+  "navbar": {
+    "login": "Iniciar sesión",
+    "logout": "Cerrar sesión",
+    "account": "Cuenta"
+  },
+  "index": {
+    "OrderifyInfo1": "Orderify es una poderosa herramienta diseñada para simplificar los procesos de gestión de pedidos para empresas de todos los tamaños",
+    "OrderifyInfo2": "Nuestra API permite a los desarrolladores integrar fácilmente funcionalidades detalladas de seguimiento de pedidos en sus aplicaciones, capacitando a las empresas para gestionar y monitorear eficientemente el estado de los pedidos de los clientes en tiempo real",
+    "AllRightsReserved": "Todos los derechos reservados"
+  },
+  "account": {
+    "accountInfo": "Información de la cuenta",
+    "loggedIn": "Sesión iniciada en",
+    "verified": "Verificado",
+    "notVerified": "Sin verificar",
+    "verifyAccountMessage": "Debe verificar su cuenta haciendo clic en el enlace enviado a su dirección de correo electrónico"
+  },
+  "home": {
+    "Welcome": "Bienvenido a",
+    "NewAppButton": "Nueva app",
+    "WithoutAppsText": {
+      "p1": "Aún no tiene ninguna aplicación registrada",
+      "p2": "Intente añadir una nueva haciendo click en el botón",
+      "newApp": "nueva app"
+    }
+  }
+}

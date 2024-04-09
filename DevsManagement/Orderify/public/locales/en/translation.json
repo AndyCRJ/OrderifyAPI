@@ -1,0 +1,28 @@
+{
+  "navbar": {
+    "login": "Login",
+    "logout": "Logout",
+    "account": "Account"
+  },
+  "index": {
+    "OrderifyInfo1": "Orderify is a powerful tool designed to streamline order management processes for businesses of all sizes",
+    "OrderifyInfo2": "Our API allows developers to easily integrate detailed order tracking functionality into their applications, empowering businesses to efficiently manage and monitor the status of customer orders in real-time",
+    "AllRightsReserved": "All rights reserved"
+  },
+  "account": {
+    "accountInfo": "Account info",
+    "loggedIn": "Logged in",
+    "verified": "Verified",
+    "notVerified": "Not verified",
+    "verifyAccountMessage": "You need to verify your account by clicking the link sent to your email address"
+  },
+  "home": {
+    "Welcome": "Welcome to",
+    "NewAppButton": "New app",
+    "WithoutAppsText": {
+      "p1": "You don't have any registered app yet",
+      "p2": "Try adding new one clicking the button",
+      "newApp": "new app"
+    }
+  }
+}
