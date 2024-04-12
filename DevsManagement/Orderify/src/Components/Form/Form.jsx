@@ -56,7 +56,7 @@ Form.Field = ( { className, formikFieldProps, touched, error, fieldInfo } ) => {
       <div>
         {
           touched && error ?
-          <p className={`text-sm${error ? ' text-error' : ''}`}>
+          <p className={`text-sm${error ? ' text-form_error' : ''}`}>
             {error}
           </p> : null
         }

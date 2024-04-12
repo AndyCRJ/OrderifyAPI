@@ -21,10 +21,17 @@ export default {
           light: '#EEEEEE',
           dark: '#292929'
         },
-        "error": '#c07676',
-        "transparency_error": "#c0767677",
+
+        "success": "#afffcc",
+        "warning": "#fff7af",
+        "error": "#ffafaf",
+
+        "form_error": '#c07676',
+        "form_outline_error": "#c0767677",
+
         "border_primary": '#8696b5',
         "outline_primary": "#8696b577",
+        
         "primary": {
           light: '#d9e3ff',
           dark: '#8696b5',
@@ -32,7 +39,7 @@ export default {
         "secondary": {
           light: '#bfe0ff',
           dark: '#8ea7bc'
-        }
+        },
       }
     },
   },

@@ -21,7 +21,7 @@ export default function Navbar({ navbarStyle }) {
   )
   
   return (
-    <nav className='my-2 pt-10 fixed top-0 w-full z-10'>
+    <nav className='my-2 pt-10 fixed top-0 w-full z-[5]'>
       <div className='flex flex-row gap-10 px-10 py-2 justify-end items-center'>
         {
           navbarStyle == "app" ?

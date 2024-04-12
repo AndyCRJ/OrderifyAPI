@@ -6,23 +6,12 @@ import { useTranslation } from 'react-i18next';
 
 export default function Account() {
   
-  const { user, getAccessTokenSilently, getAccessTokenWithPopup } = useAuth0()
+  const { user } = useAuth0()
   const { t } = useTranslation()
-  const [token, setToken] = useState("");
   const [loggedInAs, setLoggedInAs] = useState("");
 
   useEffect(() => {
     setLoggedInAs(user.sub.split("|")[0]);
-    (async () => {
-      try {
-        const _token = await getAccessTokenSilently()
-        console.log(_token)
-        setToken(_token)
-      } catch (error) {
-        console.error(error)
-      }
-    })();
-    
   }, []);
 
   return (

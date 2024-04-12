@@ -11,6 +11,7 @@ import Home from './Pages/Home/Home'
 import Account from './Pages/Account/Account'
 import { initializeTheme } from './Services/SwitchThemeService'
 import i18n from './Translation/i18n'
+import { NotificationProvider } from './Components/Notification/Notification'
 
 function App () {
   useEffect(() => initializeTheme(), []);
@@ -25,17 +26,19 @@ function App () {
         redirect_uri: window.location.origin + "/app"
       }}
     >
-      <Router>
-        <Routes>
-          <Route path='/' element={<MainLayout/>}>
-            <Route path='/' element={<Index/>}/>
-          </Route>
-          <Route path='app' element={<ProtectRoutes/>}>
-            <Route path='' element={<Home/>}/>
-            <Route path='account' element={<Account/>}/>
-          </Route>
-        </Routes>
-      </Router>
+      <NotificationProvider>
+        <Router>
+          <Routes>
+            <Route path='/' element={<MainLayout/>}>
+              <Route path='/' element={<Index/>}/>
+            </Route>
+            <Route path='app' element={<ProtectRoutes/>}>
+              <Route path='' element={<Home/>}/>
+              <Route path='account' element={<Account/>}/>
+            </Route>
+          </Routes>
+        </Router>
+      </NotificationProvider>
     </Auth0Provider>
   </React.StrictMode>
   )

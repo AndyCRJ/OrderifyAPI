@@ -71,7 +71,7 @@ html[data-transitions], html[data-transitions] *:where(:not(.scapeDefault)) {
   border-width: 3px;
   border-radius: 5px;
   outline-width: 0px;
-  //background-color: #c07676;
+  //background-color: #76c095;
   &:focus-visible {
     @apply outline outline-outline_primary;
     @apply border-border_primary;
@@ -79,8 +79,8 @@ html[data-transitions], html[data-transitions] *:where(:not(.scapeDefault)) {
   }
   
   &.input-error {
-    @apply outline outline-transparency_error;
-    @apply border-error;
+    @apply outline outline-form_outline_error;
+    @apply border-form_error;
   }
   transition: all ease-in-out 75ms;
 }
@@ -89,4 +89,20 @@ html[data-transitions], html[data-transitions] *:where(:not(.scapeDefault)) {
   border-width: 3px;
   border-radius: 10px;
   @apply border-solid dark:border-white border-dark;
+}
+
+div[data-name="notification"] {
+  @apply px-4 mt-0 opacity-0;
+  max-height: 0;
+  overflow: hidden;
+  
+
+  &.appear {
+    @apply py-4 mt-4 opacity-100;
+    max-height: 100%;
+    
+    transition: all 150ms cubic-bezier(0.600, 0.010, 0.135, 1.260);
+  }
+
+  transition: all 125ms cubic-bezier(0.600, 0.010, 0.135, 1.260);
 }

@@ -8,6 +8,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup'
 import Form from '../../Components/Form/Form';
 import i18next from 'i18next';
+import { useNotification } from '../../Components/Notification/Notification';
 
 const myObject = {
   key: i18next.t("navbar.account")
@@ -24,6 +25,8 @@ export default function Home() {
   const [apps, setApps] = useState([]);
 
   const [isOpen, openModal, closeModal] = useDialog()
+
+  const notify = useNotification()
 
   const formik = useFormik({
     initialValues: {
@@ -53,7 +56,7 @@ export default function Home() {
       console.log(token)
     })();
     setLoading(false)
-  }, []);
+  }, [apps]);
 
   return (
     <div className='w-full gap-3 h-full flex flex-col'>
@@ -70,58 +73,8 @@ export default function Home() {
           <>
             <div className='w-full flex justify-end px-10'>
               <button onClick={openModal} className='button button-secondary'><i className='fas fa-plus mr-2'></i>{t("home.NewAppButton")}</button>
-              <Form/>
+
               <Modal panelClassName="w-[45%]" isOpen={isOpen} closeModal={closeModal}>
-                {/* <form autoComplete='off' onSubmit={formik.handleSubmit} className='flex flex-col gap-5 items-center justify-center'>
-                  <div className='flex w-full mb-5 relative items-center justify-center'>
-                    <h3 className='text-2xl font-semibold leading-6 text-dark dark:text-white'>
-                      Create new app
-                    </h3>
-                    <button onClick={closeModal} className='absolute scapeDefault h-fit top-0 right-2 active:scale-90 transition-all ease-in-out duration-100'><i className='fas fa-xmark text-xl'></i></button>
-                  </div>
-
-                  <div className='flex text-center'>
-                    <p>Please enter the identifier for your app, once created, you'll be able to setting it up and then you will be able to acces to the main API</p>  
-                  </div>
-                  
-                  <div className="flex flex-col w-full">
-                    <div className='flex flex-col w-full gap-2'>
-                      <div className='flex items-center text-lg'>
-                        <label htmlFor='name' className=''>Name</label><i className='fas fa-asterisk ml-1 text-xs'></i>
-                      </div>
-                      <div>
-                        {
-                          formik.touched.name && formik.errors.name ?
-                          <p className={`text-sm${formik.errors.name ? ' text-error' : ''}`}>
-                            {formik.errors.name}
-                          </p> : null
-                        }
-                      </div>
-                      <input
-                        autoComplete='off'
-                        id='name'
-                        name='name'
-                        className={`input scapeDefault${formik.errors.name ? ' input-error' : ''}`}
-                        type='text'
-                        {...formik.getFieldProps("name")}
-                      />
-                    </div>
-                  </div>
-
-
-                  <div className="flex relative w-full mt-4 items-center justify-center">
-                    <button type="submit" className="button button-primary font-semibold">
-                      <i className='fas mr-1 fa-box'></i> Register new app
-                    </button>
-                    {
-                      formLoading ?
-                      <div className='absolute right-4'>
-                        <Loader width="3rem"/>
-                      </div> : null
-                    }
-                  </div>
-                </form> */}
-
                 <Form className='gap-5' autoComplete="off" onSubmit={formik.handleSubmit}>
                   <Form.Header className='mb-5'>
                     <h3 className='text-2xl font-semibold leading-6 text-dark dark:text-white'>
@@ -129,6 +82,9 @@ export default function Home() {
                     </h3>
                   </Form.Header>
                   <Form.Body>
+                    <div className='flex text-center'>
+                      <p className='mb-6'>Please enter the identifier for your app, once created, you'll be able to setting it up and then you will be able to acces to the main API</p>  
+                    </div>
                     <Form.Field className='gap-2' error={formik.errors.name} touched={formik.touched.name} formikFieldProps={formik.getFieldProps('name')} fieldInfo={{
                         autoComplete: "off",
                         className: "",
@@ -141,6 +97,7 @@ export default function Home() {
                     />
                   </Form.Body>
                   <Form.Footer submitButtonText='Register new app' buttonStyleClass='button-primary' iconClass='fas mr-1 fa-box' formLoading={formLoading}/>
+                  <button onClick={() => { notify({ type: "Success", message: "The app has been created successfully" }) }} type='button' className='button button-primary'>Test noti</button>
                 </Form>
               </Modal>
             </div>
